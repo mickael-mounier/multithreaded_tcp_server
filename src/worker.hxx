@@ -15,9 +15,6 @@ extern "C" {
 # include <fcntl.h>
 }
 
-namespace {
-}
-
 template <typename UidGenerationPolicy, typename EncodingPolicy>
 Worker<UidGenerationPolicy, EncodingPolicy>::Worker(server_type &server, int socket)
     : server_(server)
@@ -130,7 +127,7 @@ void Worker<UidGenerationPolicy, EncodingPolicy>::run()
         }
         else // next tick <= 150ms
         {
-            // Sleep the necassry time minus 3ms
+            // Sleep the necessary time minus 3ms
             sleep_time.tv_nsec = next_tick_ns - 3000000;
             if (sleep_time.tv_nsec > 0)
                 nanosleep(&sleep_time, nullptr);

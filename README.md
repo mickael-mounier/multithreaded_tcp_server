@@ -127,24 +127,21 @@ Building and running the server
 
 Nothing fancy here, typical GNU build sytem:
 
-<code>
-$ autoreconf --install
-$ mkdir build
-$ cd build
-$ ../configure
-$ make
-</code>
+    $ autoreconf --install
+    $ mkdir build
+    $ cd build
+    $ ../configure
+    $ make
 
 The program will be created in the build/src directory.
 
 There are four different combination for the actual output to clients:
 
-<code>
-$ ./server -e decimal -i sequential : sending incremental numbers in decimal
-$ ./server -e base64 -i sequential  : sending incremental numbers in base64
-$ ./server -e decimal -i random     : sending random numbers in decimal
-$ ./server -e base64 -i random      : sending random numbers in base64
-</code>
+    $ ./server -e decimal -i sequential : sending incremental numbers in decimal
+    $ ./server -e base64 -i sequential  : sending incremental numbers in base64
+    $ ./server -e decimal -i random     : sending random numbers in decimal
+    $ ./server -e base64 -i random      : sending random numbers in base64
+
 
 Dependencies
 ============
