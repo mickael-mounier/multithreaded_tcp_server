@@ -1,12 +1,8 @@
-========================
-Multithreaded TCP server
-========================
+# Multithreaded TCP server
 
 This is a multithreaded C++ server I did for a job interview.
 
-
-Assignment
-==========
+## Assignment
 
 Write a server in C or C++ language serving arbitrary number of TCP
 clients.
@@ -30,11 +26,9 @@ clients.
  - Limit the usage of global variables.
 
 
-Notes
-=====
+## Notes
 
-General
--------
+### General
 
 The project has been written in C++11 language using the GNU autotools
 build system. To respect the assignment, no major feature from C++11
@@ -53,8 +47,7 @@ No mutexes have been used except in uid_generator_policy_random to
 lock a set.
 
 
-Main Thread
------------
+### Main Thread
 
 The main thread is using a blocking socket to accept connections. It
 uses a thread counter that can indicate the number of connected
@@ -62,8 +55,7 @@ clients. This counter is also used when the server receives a SIGINT:
 we have an infinite loop waiting for the counter to reach 0.
 
 
-Client Threads
---------------
+### Client Threads
 
 I call here a tick the time we need to send the unique ID to the
 client (every seconds since client's connection).
@@ -90,8 +82,7 @@ accuracy it will be necessary to use and tweak the kernel's scheduler,
 or even better: use a real-time Linux kernel.
 
 
-ID Generation
--------------
+### ID Generation
 
 The default ID generator is just a counter starting from 0. I wasn't
 really sure if that was what was expected so I made another based on
@@ -101,16 +92,14 @@ You can switch from one to another using the -i parameter, the allowed
 values are "sequential" (default) and "random".
 
 
-ASCII encoding
---------------
+### ASCII encoding
 
 Here again I wasn't really sure of what was expected so I made two
 different encoders that can be swiched using the -e argument. The
 allowed values are "decimal" (default) and "base64".
 
 
-Files
-=====
+## Files
 
 In ./src:
 
@@ -122,8 +111,7 @@ In ./src:
  - encoding_*: the ASCII encoders
 
 
-Building and running the server
-===============================
+## Building and running the server
 
 Nothing fancy here, typical GNU build sytem:
 
@@ -143,8 +131,7 @@ There are four different combination for the actual output to clients:
     $ ./server -e base64 -i random      : sending random numbers in base64
 
 
-Dependencies
-============
+## Dependencies
 
 The project has been tested using :
  - gcc 4.9.0
